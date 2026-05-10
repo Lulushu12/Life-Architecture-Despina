@@ -16,7 +16,6 @@ export default defineConfig({
                                 background_color: '#13100d',
                                 display: 'standalone',
                                 orientation: 'portrait',
-                                ]
                               }
                             })
   ],
