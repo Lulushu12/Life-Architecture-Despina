@@ -1,0 +1,10 @@
+{
+  "name": "Despina's Health System",
+  "short_name": "Despina SHS",
+  "description": "Sovereign Health System for Despina",
+  "theme_color": "#13100d",
+  "background_color": "#13100d",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/Life-Architecture-Despina/"
+}
