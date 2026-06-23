@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CycleGuide from './CycleGuide';
 
 const FONTS = `@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');`;
 
@@ -160,7 +161,7 @@ const KcalTag = ({ kcal }) => (
   </span>
 );
 
-export default function App() {
+function SHS() {
   const [tab, setTab] = useState("overview");
   const [day, setDay] = useState(0);
   const [checked, setChecked] = useState({});
@@ -376,6 +377,25 @@ export default function App() {
     )}
 
     </div>
+    </div>
+  );
+}
+
+export default function App() {
+  const [view, setView] = useState("shs");
+  return (
+    <div>
+      <div style={{ display:"flex", background:"#1e1812", borderBottom:"1px solid #3a2e22", position:"sticky", top:0, zIndex:100 }}>
+        {[["shs","Weekly Plan"],["cycle","Cycle Guide"]].map(([id, label]) => (
+          <button key={id} onClick={() => setView(id)} style={{
+            flex:1, padding:"13px 8px", fontSize:11, fontWeight: view===id ? 600 : 400,
+            color: view===id ? "#c8714a" : "#8a7a6a", cursor:"pointer",
+            letterSpacing:"0.09em", textTransform:"uppercase", background:"none",
+            border:"none", borderBottom:`2px solid ${view===id ? "#c8714a" : "transparent"}`,
+          }}>{label}</button>
+        ))}
+      </div>
+      {view === "shs" ? <SHS /> : <CycleGuide />}
     </div>
   );
 }
